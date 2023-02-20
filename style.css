@@ -1,0 +1,262 @@
+/* reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* custom proterties */
+:root {
+  --Neutral-Almost-White: 0 0% 98%;
+  --Neutral-Medium-Gray: 0 0% 41%;
+  --Neutral-Almost-Black: 0 0% 8%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+html {
+  font-size: 18px;
+  font-family: "Epilogue", sans-serif;
+}
+
+body {
+  padding: 1rem;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.mobile-nav-toggle {
+  background-image: url("./images/icon-menu.svg");
+  background-repeat: no-repeat;
+  /* aspect-ratio: 1; */
+  height: 1rem;
+  width: 2rem;
+  border: none;
+  cursor: pointer;
+  z-index: 12;
+  background-color: transparent;
+}
+
+.side-nav {
+  position: fixed;
+  background-color: red;
+  height: 100vh;
+  inset: 0 0 0 35%;
+  /* display: none; */
+
+  padding: 5rem 1rem 0 1rem;
+}
+
+.side-nav > ul {
+  display: grid;
+  gap: 1rem;
+}
+.side-nav button {
+  color: hsl(var(--Neutral-Medium-Gray));
+}
+
+.features {
+  position: relative;
+}
+
+.company {
+  position: relative;
+}
+
+.features::after,
+.company::after {
+  content: var(--feature-image, url("./images/icon-arrow-down.svg"));
+  position: absolute;
+  top: 0;
+  margin-left: 1rem;
+}
+
+.down-toggle {
+  padding-top: 1rem;
+  padding-left: 1.5rem;
+  /* display: none; */
+}
+
+.down-toggle li:not(:last-child) {
+  border: 1px solid;
+  margin-bottom: 1rem;
+}
+.todo-list,
+.calendar,
+.reminders,
+.planning {
+  position: relative;
+}
+
+.todo-list::before {
+  content: url("./images/icon-todo.svg");
+  margin-right: 1rem;
+}
+
+.calendar::before {
+  content: url("./images/icon-calendar.svg");
+  margin-right: 1rem;
+}
+
+.reminders::before {
+  content: url("./images/icon-reminders.svg");
+  margin-right: 1rem;
+}
+.planning::before {
+  content: url("./images/icon-planning.svg");
+  margin-right: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: hsl(var(--Neutral-Medium-Gray));
+}
+
+.side-nav-buttons {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.login {
+  /* --color: hsl(var(--Neutral-Medium-Gray)); */
+}
+
+.register {
+  /* --color: hsl(var(--Neutral-Medium-Gray)); */
+  border: 1px solid hsl(var(--Neutral-Medium-Gray));
+  --radius: 0.5rem;
+  padding: 0.4rem 0;
+}
+.image-pc {
+  display: none;
+}
+
+.mid-cont {
+  margin-top: 1rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mid-cont > * {
+  padding-bottom: 1rem;
+}
+
+.mid-cont > h1 {
+  font-size: 1.8rem;
+  color: hsl(var(--Neutral-Almost-Black));
+}
+
+.mid-cont > p {
+  color: hsl(var(--Neutral-Medium-Gray));
+  font-size: 0.8rem;
+}
+
+button {
+  background-color: var(--bg-color);
+  color: var(--color);
+  cursor: pointer;
+  border-radius: var(--radius);
+  border: none;
+}
+
+.Learn-more {
+  --bg-color: hsl(var(--Neutral-Almost-Black));
+  --color: hsl(var(--Neutral-Almost-White));
+  --radius: 0.7rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.8rem;
+}
+
+.partners {
+  margin: 2rem 0;
+}
+
+.ul-parter {
+  /* border: 1px solid r  ed; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ul-parter img {
+  width: 3.5rem;
+  object-fit: contain;
+}
+
+@media (min-width: 400px) {
+  body {
+    background-color: red;
+  }
+}

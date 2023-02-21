@@ -95,7 +95,9 @@ header {
 
 .mobile-nav-toggle {
   background-image: url("./images/icon-menu.svg");
+  /* background-image: ; */
   background-repeat: no-repeat;
+  background-size: contain;
   /* aspect-ratio: 1; */
   height: 1rem;
   width: 2rem;
@@ -103,37 +105,54 @@ header {
   cursor: pointer;
   z-index: 12;
   background-color: transparent;
+  /* display: none; */
 }
 
 .side-nav {
   position: fixed;
-  background-color: red;
+  /* visibility: hidden; */
+  /* background-color: red; */
+  background-color: white;
   height: 100vh;
-  inset: 0 0 0 35%;
+  inset: 0 0 0 50%;
+  font-size: 0.7rem;
+
   /* display: none; */
 
   padding: 5rem 1rem 0 1rem;
+  transition: transform 400ms;
+  transform: translateX(100%);
 }
 
-.side-nav > ul {
-  display: grid;
-  gap: 1rem;
+.side-nav[data-visibility="true"] {
+  transform: translateX(0%);
 }
+
+.btn-feature-cont {
+  font-size: inherit;
+  position: relative;
+}
+/* .side-nav ul {
+  display: grid;
+  gap: rem;
+} */
 .side-nav button {
   color: hsl(var(--Neutral-Medium-Gray));
 }
 
-.features {
+.features,
+.company {
   position: relative;
 }
 
-.company {
-  position: relative;
+.careers {
+  margin-bottom: 1rem;
 }
 
 .features::after,
 .company::after {
   content: var(--feature-image, url("./images/icon-arrow-down.svg"));
+  /* content: var(--feature-image, url(./images/icon-arrow-up.svg)); */
   position: absolute;
   top: 0;
   margin-left: 1rem;
@@ -142,12 +161,29 @@ header {
 .down-toggle {
   padding-top: 1rem;
   padding-left: 1.5rem;
-  /* display: none; */
+  background-color: transparent;
+  overflow: hidden;
+}
+.feature-animation {
+  height: 0;
+  transition: height 500ms;
 }
 
-.down-toggle li:not(:last-child) {
-  border: 1px solid;
+.company-animation {
+  height: 0;
+  transition: height 500ms;
+}
+/* .down-toggle:hover {
+  height: 10rem;
+  background-color: #3e8e41;
+} */
+
+.down-toggle li {
+  /* border: 1px solid; */
   margin-bottom: 1rem;
+  /* font-size: rem; */
+  /* display: flex; */
+  /* align-items: center; */
 }
 .todo-list,
 .calendar,
@@ -158,21 +194,29 @@ header {
 
 .todo-list::before {
   content: url("./images/icon-todo.svg");
-  margin-right: 1rem;
+  margin-right: 0.5rem;
+  position: relative;
+  top: 0.1rem;
 }
 
 .calendar::before {
   content: url("./images/icon-calendar.svg");
-  margin-right: 1rem;
+  margin-right: 0.5rem;
+  position: relative;
+  top: 0.1rem;
 }
 
 .reminders::before {
   content: url("./images/icon-reminders.svg");
-  margin-right: 1rem;
+  margin-right: 0.5rem;
+  position: relative;
+  top: 0.1rem;
 }
 .planning::before {
   content: url("./images/icon-planning.svg");
-  margin-right: 1rem;
+  margin-right: 0.5rem;
+  position: relative;
+  top: 0.1rem;
 }
 
 a {
@@ -180,12 +224,18 @@ a {
   color: hsl(var(--Neutral-Medium-Gray));
 }
 
+.feature-list {
+  font-size: inherit;
+}
+
 .side-nav-buttons {
-  background-color: white;
+  margin-top: 2rem;
+  /* background-color: white; */
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
+
 .login {
   /* --color: hsl(var(--Neutral-Medium-Gray)); */
 }
@@ -238,6 +288,11 @@ button {
   padding: 0.6rem 1.2rem;
   font-size: 0.8rem;
 }
+.Learn-more:hover {
+  background-color: transparent;
+  color: black;
+  border: 1px solid black;
+}
 
 .partners {
   margin: 2rem 0;
@@ -255,8 +310,161 @@ button {
   object-fit: contain;
 }
 
-@media (min-width: 400px) {
+@media (min-width: 830px) {
   body {
-    background-color: red;
+    /* background-color: red; */
+  }
+  .mobile-nav-toggle {
+    display: none;
+  }
+  header {
+    justify-content: flex-start;
+    align-items: center;
+    /* justify-content: space-between; */
+  }
+  .side-nav {
+    /* visibility: visible; */
+    /* position: initial; */
+    /* inset: initial; */
+    /* display: flex; */
+    /* background-color: red; */
+    /* width: 10%; */
+
+    all: unset;
+  }
+
+  .main-nav {
+    /* width: 100%; */
+    /* display: flex; */
+    /* background-color: red;
+    justify-content: space-evenly; */
+    /* border: 1px solid red; */
+    /* height: 100%; */
+    /* width: 100vw; */
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+  }
+
+  .main-nav > .list > ul {
+    margin-left: 2rem;
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .feature-list {
+    align-self: flex-end;
+  }
+
+  .side-nav-buttons {
+    /* border: 1px solid red; */
+    position: absolute;
+    margin-top: 0.5rem;
+    display: flex;
+    right: 1rem;
+    /* background-color: rebeccapurple; */
+    flex-direction: row;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* margin-inline: auto; */
+  }
+
+  .features,
+  .company,
+  .careers {
+    margin-top: 1rem;
+  }
+  .careers,
+  .about {
+    /* border: 1px solid red; */
+    padding: 0 1rem;
+  }
+
+  .down-toggle li {
+    padding-left: 1rem;
+  }
+  .down-toggle li:first-child {
+    padding-top: 1rem;
+  }
+  .down-toggle li:last-child {
+    margin-bottom: 1rem;
+  }
+
+  .feature-animation {
+    left: -4rem;
+
+    position: absolute;
+    background-color: white;
+    /* height: 1rem; */
+    border-radius: 1rem;
+    box-shadow: -2px 1px 21px -7px rgba(0, 0, 0, 0.75);
+    /* padding: 100rem; */
+    /* visibility: hidden; */
+    overflow: hidden;
+    width: 9rem;
+  }
+
+  .btn-compant-cont {
+    position: relative;
+  }
+
+  .company-animation {
+    position: absolute;
+    background-color: white;
+    box-shadow: -2px 1px 21px -7px rgba(0, 0, 0, 0.75);
+    border-radius: 1rem;
+    width: 7rem;
+    overflow: hidden;
+    left: 0;
+  }
+
+  main {
+    /* border: 1px solid red; */
+    display: flex;
+    padding: 3rem;
+    flex-direction: row-reverse;
+    gap: 4rem;
+    /* height: 80vh */
+    align-items: center;
+  }
+  .left {
+    display: flex;
+    flex-direction: column;
+    /* border: 1px solid red; */
+    padding: 1rem;
+    /* justify-content: center; */
+  }
+  .mid-cont {
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .mid-cont > h1 {
+    font-size: 3.5rem;
+    width: 11ch;
+  }
+  .mid-cont > p {
+    width: 50ch;
+  }
+
+  .image-pc {
+    display: block;
+    height: 29rem;
+    width: 29rem;
+  }
+  .image-mobile {
+    display: none;
+  }
+
+  .partners {
+    margin-top: 3rem;
+    margin-bottom: auto;
+  }
+  .register {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
   }
 }
